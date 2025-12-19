@@ -276,4 +276,95 @@ nav#main-nav {
   nav li {
     margin: 0.5rem 0;
   }
+
+}
+
+/* Performances background section */
+.performances-bg {
+  position: relative;
+  background-image: url("JasperCPhoto4.jpg"); /* replace with your image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* scrolling / subtle parallax */
+  min-height: 60vh;
+  padding: 80px 20px;
+}
+
+/* Fade overlay for readability */
+.performances-overlay {
+  background-color: rgba(255, 255, 255, 0.75);
+  max-width: 800px;
+  margin: auto;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+/* Optional: soften text appearance */
+.performances-bg h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+
+.bio-bg {
+  position: relative;
+  background-image: url("JasperCPhoto3.jpg"); /* replace with your image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 80vh;
+  padding: 100px 20px;
+}
+
+/* Biography overlay */
+.bio-overlay {
+  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 900px;
+  margin: auto;
+  padding: 50px;
+  border-radius: 12px;
+  line-height: 1.7;
+}
+
+/* Biography heading */
+.bio-bg h2 {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+/* Contact background section */
+.contact-bg {
+  position: relative;
+  background-image: url("JasperCPhoto3.jpg"); /* replace with your image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 60vh;
+  padding: 80px 20px;
+}
+
+/* Contact overlay */
+.contact-overlay {
+  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
+  margin: auto;
+  padding: 45px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* Contact links styling */
+.contact-overlay a {
+  color: #000;
+  text-decoration: none;
+}
+
+.contact-overlay a:hover {
+  text-decoration: underline;
+}
+
+/* Heading spacing */
+.contact-bg h2 {
+  margin-bottom: 30px;
 }
