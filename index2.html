@@ -4,9 +4,312 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jasper Chan | Violinist</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" type="image/x-icon" href="JC-icon.png">
 </head>
+<script>
+  const buttons = document.querySelectorAll('.tab-button');
+  const contents = document.querySelectorAll('.tab-content');
+  
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+  
+      button.classList.add('active');
+      document.getElementById(button.dataset.tab).classList.add('active');
+    });
+  });
+  
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('main-nav');
+  
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+  
+  });
+</script>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Times New Roman", Times, serif;
+    margin: 0;
+    background-color: #fff;
+    color: #333;
+    padding: 0;
+    overflow-x: hidden; /* prevents sideways scrolling */
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+    header {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+  
+    .header-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 400px;
+      object-fit: cover;
+      filter: brightness(70%);
+    }
+  
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      z-index: 2;
+      position: relative;
+    }
+  
+    .header-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+  
+    header p {
+      font-size: 1.2rem;
+      z-index: 2;
+      position: relative;
+    }
+  
+    /* Optional: overlay if image makes text hard to read */
+  header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
+      z-index: 1;
+    }
+  
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    background: #eee;
+    margin: 0;
+  }
+  
+  nav li {
+    margin: 0 10px;
+  }
+  
+  nav .tab-button {
+      background: none;
+      border: none;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #333;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    nav .tab-button:hover {
+      background-color: #f2f2f2;
+      border-bottom: 3px solid #bbb;
+    }
+    
+    nav .tab-button.active {
+      border-bottom: 3px solid #444;
+      font-weight: 600;
+      color: #000;
+    }
+  
+  main {
+      position: relative;
+      padding: 1.5rem;
+      min-height: 300px;
+      max-width: 100%;
+      overflow-wrap: break-word;
+  }
+  
+  .tab-content {
+    display: none;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    /* Removed position: absolute and related properties */
+    /* Removed z-index */
+  }
+  
+  .tab-content.active {
+    display: block;
+    opacity: 1;
+    /* position is static by default */
+    /* z-index not needed */
+  }
+  
+    .gallery {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .gallery img {
+      max-width: 100%;
+      width: 280px;
+      height: auto;
+      border: 6px solid #eee;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      padding: 4px;
+      background-color: white;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+  }
+  
+  form input, form textarea {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form button {
+    padding: 0.75rem;
+    background: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: #f1f1f1;
+    margin-top: 2rem;
+  }
+  
+  main {
+    position: relative;
+    min-height: 300px; /* or whatever fits your content */
+  }
+  
+  @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    
+      nav li {
+        margin: 0;
+        border-bottom: 1px solid #ddd;
+      }
+    
+      .gallery {
+        flex-direction: column;
+      }
+    
+      form {
+        width: 100%;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      body {
+        font-size: 0.95rem;
+      }
+    
+      header h1 {
+        font-size: 1.8rem;
+      }
+    
+      nav .tab-button {
+        font-size: 1rem;
+      }
+    }
+  
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    
+    .video-item iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 8px;
+      aspect-ratio: 16 / 9;
+    }
+    
+    .video-item h3 {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .video-item p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+  
+  .nav-container {
+    position: relative;
+    background-color: #eee;
+  }
+  
+  #hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+  nav#main-nav {
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  
+  @media (max-width: 768px) {
+    #hamburger {
+      display: block;
+    }
+  
+    nav#main-nav {
+      max-height: 0;
+    }
+  
+    nav#main-nav.open {
+      max-height: 500px; /* enough to show all buttons */
+    }
+  
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    nav li {
+      margin: 0.5rem 0;
+    }
+  
+  }
+</style>
 <body>
     <header>
         <img src="JasperCPhoto6.jpg" alt="Jane Doe Violinist" class="header-img">
